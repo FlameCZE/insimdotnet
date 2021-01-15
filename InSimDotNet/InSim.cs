@@ -1,5 +1,6 @@
 ﻿using InSimDotNet.Packets;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Net.Sockets;
@@ -13,7 +14,7 @@ namespace InSimDotNet {
         /// <summary>
         /// Gets the current InSim version.
         /// </summary>
-        public const int InSimVersion = 7;
+        public const int InSimVersion = 8;
         private const string RelayHost = "isrelay.lfs.net";
         private const int RelayPort = 47474;
 
@@ -316,13 +317,12 @@ namespace InSimDotNet {
 
         private static byte[] GetSendBuffer(ISendable[] packets) {
             int size = packets.Sum(p => p.Size);
-            byte[] buffer = new byte[size];
-            int offset = 0;
-            foreach (ISendable packet in packets) {
-                Buffer.BlockCopy(packet.GetBuffer(), 0, buffer, offset, packet.Size);
-                offset += packet.Size;
+            List<byte> buffer = new List<byte>(size);
+            foreach (var packet in packets)
+            {
+                buffer.AddRange(packet.GetBuffer());
             }
-            return buffer;
+            return buffer.ToArray();
         }
 
         /// <summary>

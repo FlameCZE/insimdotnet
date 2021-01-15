@@ -1,3 +1,16 @@
+- 2.3.3 (4th June 2019)
+
+* Updated to LFS 0.6T
+
+- 2.3.2 (16th March 2017)
+
+* Added SMALL_LCS option for IS_SMALL packet
+* Added ISS_DIALOG and ISS_TEXT_ENTRY to StateFlags enum
+
+- 2.3.1 (28th January 2017)
+
+* Added new Blackwood configurations to TrackHelper (thanks to FlameCZE)
+
 - 2.3.0 (11th Febuary 2016)
 
 * Updated for LFS 0.6M - a very large number of new packets and changes (see lfs\docs\insim.txt for details)
@@ -6,7 +19,7 @@
 * Fixed encoding issue that occasionally caused garbled strings to be sent to LFS
 * Changed InSim.Send(IEnumerable<ISendable>) method to InSim.Send(params ISendable[]) which provides better syntax
 * Fixed missing VIEW_ANOTHER identifier in ViewIdentifiers
-* Added new StringHelpers: StripLanguage(string), Strip(string), Unescape(string), Escape(string), and PacketDump(IPacket)
+* Added new StringHelpers: StripLanguage(string), Strip(string), Unescape(string), and Escape(string)
 * Added Rockingham to TrackHelper
 
 - 2.2.0 (3rd April 2015)
